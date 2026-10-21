@@ -4,7 +4,7 @@ namespace App;
 
 use RuntimeException;
 
-class Database
+class DbConnection
 {
     public static function getConnection(): \mysqli
     {

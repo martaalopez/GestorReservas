@@ -1,0 +1,27 @@
+[21-Oct-2026 15:08:50 Europe/Berlin] PHP Warning:  require_once(C:\Users\usuario\Desktop\Reservas de alojamiento\public/../src/Database.php): Failed to open stream: No such file or directory in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 8
+[21-Oct-2026 15:08:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\usuario\Desktop\Reservas de alojamiento\public/../src/Database.php' (include_path='C:\xampp\php\PEAR') in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 8
+[21-Oct-2026 15:16:53 Europe/Berlin] PHP Warning:  require_once(C:\Users\usuario\Desktop\Reservas de alojamiento\public/../src/Exception/ValidationException.php): Failed to open stream: No such file or directory in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 9
+[21-Oct-2026 15:16:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\usuario\Desktop\Reservas de alojamiento\public/../src/Exception/ValidationException.php' (include_path='C:\xampp\php\PEAR') in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 9
+[21-Oct-2026 15:21:12 Europe/Berlin] PHP Warning:  require(C:\Users\usuario\Desktop\Reservas de alojamiento/vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 9
+[21-Oct-2026 15:21:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\usuario\Desktop\Reservas de alojamiento/vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 9
+[21-Oct-2026 15:26:07 Europe/Berlin] PHP Warning:  require_once(C:\Users\usuario\Desktop\Reservas de alojamiento\public/../src/Http/JsonResponse.php): Failed to open stream: No such file or directory in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 14
+[21-Oct-2026 15:26:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\usuario\Desktop\Reservas de alojamiento\public/../src/Http/JsonResponse.php' (include_path='C:\xampp\php\PEAR') in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 14
+[21-Oct-2026 15:26:37 Europe/Berlin] PHP Warning:  require_once(C:\Users\usuario\Desktop\Reservas de alojamiento\public/../src/Http/JsonResponse.php): Failed to open stream: No such file or directory in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 14
+[21-Oct-2026 15:26:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\usuario\Desktop\Reservas de alojamiento\public/../src/Http/JsonResponse.php' (include_path='C:\xampp\php\PEAR') in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:14
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 14
+[21-Oct-2026 15:33:26 Europe/Berlin] Class "App\DbConnection" not found en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:36
+[21-Oct-2026 15:35:57 Europe/Berlin] Class "App\DbConnection" not found en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:36

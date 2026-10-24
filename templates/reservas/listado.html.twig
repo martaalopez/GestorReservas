@@ -1,0 +1,40 @@
+{% exteds 'base.html.twig' %}
+
+{% block titulo % } Listado de reservas{% endblock %}
+{% block contenido %}
+<h2>Listado de reservas<h2>
+<table>
+<thead>
+  <tr>
+      <th>Huésped</th>
+      <th>Alojamiento</th>
+      <th>Entrada</th>
+      <th>Salida</th>
+      <th>Estado</th>
+      <th>Importe</th>
+  </tr>
+<thead>
+  <tbody>
+        
+            {% for reserva in reservas %}
+                <tr>
+                    <td>{{ reserva.nombre_huesped }}</td>
+                    <td>{{ reserva.nombre_alojamiento }}</td>
+                    
+                    <td>{{ reserva.fecha_entrada|date('d/m/Y') }}</td>
+                    <td>{{ reserva.fecha_salida|date('d/m/Y') }}</td>
+                    
+                    <td>{{ reserva.estado }}</td>
+                    
+                    <td>{{ reserva.importe|number_format(2, ',', '.') }} €</td>
+                </tr>
+            {% else %}
+          
+                <tr>
+                    <td colspan="6">No hay reservas registradas.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+  
+</table>
+{% endblock %}

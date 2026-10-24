@@ -56,6 +56,8 @@ try {
     // 7. Despachar la petición
     $router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
 
+
+
 } catch (ValidationException $e) {
     JsonResponse::send([
         'error'    => 'Datos no válidos',
@@ -67,3 +69,8 @@ try {
     error_log($e->getMessage() . ' en ' . $e->getFile() . ':' . $e->getLine());
     JsonResponse::send(['error' => $e->getMessage()], 500); // Muestra el error real para que podamos depurar
 }
+
+$loader= new \Twing\Loader\FilesystemLoader(__DIR__. '/../templates');
+$twig= new \Twing\Environment($loader,[
+    'cache'=>false,
+]);

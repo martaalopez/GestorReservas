@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <title>Reserva de alojamiento</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block titulo %}MisterPlan{% endblock %}</title>
+        <link rel="stylesheet" href="/assets/css/style.css">
     </head>
     <body>
-        <header><h1><a href="/vistas/reservas"></a></header>
-        <main> {% block contenido %}{% endblock %}
+        <header>
+            <h1><a href="/vistas/reservas">MisterPlan - Reservas</a></h1>
+        </header>
+
+        <main style="padding: 20px;">
+            {% block contenido %}{% endblock %}
         </main>
+        <script src="/assets/js/app.js" defer></script>
     </body>
 </html>

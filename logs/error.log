@@ -25,3 +25,34 @@ Stack trace:
   thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 14
 [21-Oct-2026 15:33:26 Europe/Berlin] Class "App\DbConnection" not found en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:36
 [21-Oct-2026 15:35:57 Europe/Berlin] Class "App\DbConnection" not found en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:36
+[26-Oct-2026 11:14:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Twing\Loader\FilesystemLoader" not found in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 73
+[26-Oct-2026 11:16:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Twig\Loader\FilesystemLoader" not found in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 73
+[26-Oct-2026 11:16:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Twig\Loader\FilesystemLoader" not found in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 73
+[26-Oct-2026 11:16:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class "Twig\Loader\FilesystemLoader" not found in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 73
+[26-Oct-2026 11:17:11 Europe/Berlin] PHP Warning:  require(C:\Users\usuario\Desktop\Reservas de alojamiento\public/../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 21
+[26-Oct-2026 11:17:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\usuario\Desktop\Reservas de alojamiento\public/../vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:21
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 21
+[26-Oct-2026 11:55:29 Europe/Berlin] PHP Warning:  require(C:\Users\usuario\Desktop\Reservas de alojamiento\public/../vendor/autoload.php): Failed to open stream: No such file or directory in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 21
+[26-Oct-2026 11:55:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Failed opening required 'C:\Users\usuario\Desktop\Reservas de alojamiento\public/../vendor/autoload.php' (include_path='C:\xampp\php\PEAR') in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:21
+Stack trace:
+#0 {main}
+  thrown in C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php on line 21
+[26-Oct-2026 13:04:40 Europe/Berlin] Unexpected "}" in "reservas/listado.html.twig" at line 3 column 19. en C:\Users\usuario\Desktop\Reservas de alojamiento\templates\reservas\listado.html.twig:3
+[26-Oct-2026 13:06:00 Europe/Berlin] Unexpected "}" in "reservas/listado.html.twig" at line 3 column 19. en C:\Users\usuario\Desktop\Reservas de alojamiento\templates\reservas\listado.html.twig:3
+[26-Oct-2026 13:44:39 Europe/Berlin] Call to undefined method App\Repository\ReservaEventoRepository::listarPorReserva() en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73
+[26-Oct-2026 13:45:31 Europe/Berlin] Call to undefined method App\Repository\ReservaEventoRepository::listarPorReserva() en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73
+[26-Oct-2026 14:12:52 Europe/Berlin] Call to undefined method App\Repository\ReservaEventoRepository::listarPorReserva() en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73

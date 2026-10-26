@@ -1,31 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block titulo %}Detalle de la Reserva #{{ reserva.id }}{% endblock %}
+{% block titulo %}Detalle de la reserva{% endblock %}
 
 {% block contenido %}
+
     <h2>Reserva de {{ reserva.nombre_huesped }}</h2>
-    
-    <ul>
-        <li><strong>Email:</strong> {{ reserva.email_huesped }}</li>
-        <li><strong>Alojamiento:</strong> {{ reserva.nombre_alojamiento }}</li>
-        <li><strong>Fechas:</strong> {{ reserva.fecha_entrada|date('d/m/Y') }} al {{ reserva.fecha_salida|date('d/m/Y') }}</li>
-        <li><strong>Importe:</strong> {{ reserva.importe|number_format(2, ',', '.') }} €</li>
-        <li><strong>Estado:</strong> {{ reserva.estado }}</li>
-    </ul>
 
-    <h3>Historial (Timeline)</h3>
-    <ul style="list-style: none; padding-left: 0;">
-        {# Bucle para recorrer los eventos #}
-        {% for evento in eventos %}
-            <li style="margin-bottom: 10px; border-left: 3px solid #333; padding-left: 10px;">
-                <strong>{{ evento.tipo }}</strong>: {{ evento.descripcion }}
-                <br>
-                <small style="color: gray;">{{ evento.fecha_creacion }}</small>
-            </li>
-        {% else %}
-            <li>No hay eventos registrados.</li>
-        {% endfor %}
-    </ul>
+    <p>Email: {{ reserva.email_huesped }}</p>
+    <p>Alojamiento: {{ reserva.nombre_alojamiento }}</p>
+    <p>Entrada: {{ reserva.fecha_entrada }}</p>
+    <p>Salida: {{ reserva.fecha_salida }}</p>
+    <p>Importe: {{ reserva.importe }} €</p>
+    <p>Estado: {{ reserva.estado }}</p>
 
-    <a href="/vistas/reservas">&larr; Volver al listado</a>
+    <h3>Historial</h3>
+
+    {% for evento in eventos %}
+        <p>{{ evento.tipo }}: {{ evento.descripcion }} ({{ evento.fecha_creacion }})</p>
+    {% else %}
+        <p>No hay eventos registrados.</p>
+    {% endfor %}
+
+    <a href="/vistas/reservas">Volver al listado</a>
+
 {% endblock %}

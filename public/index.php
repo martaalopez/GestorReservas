@@ -8,6 +8,7 @@ ini_set('error_log', __DIR__ . '/../logs/error.log');
 error_reporting(E_ALL);
 
 // 2. Cargar tus archivos
+require __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/DbConnection.php';
 require_once __DIR__ . '/../src/Exception/NotFoundException.php';
 require_once __DIR__ . '/../src/Exception/ValidationException.php';
@@ -34,29 +35,50 @@ use App\Validation\ReservaValidator;
 try {
     // 4. Conexión a BD
     $db = DbConnection::getConnection();
-    
+
+    // Twig (plantillas)
+    $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
+    $twig = new \Twig\Environment($loader, ['cache' => false]);
+
     // 5. Ensamblaje de clases
+    $reservaRepo = new ReservaRepository($db);
+    $eventoRepo  = new ReservaEventoRepository($db);
+
     $service = new ReservaService(
         $db,
-        new ReservaRepository($db),
-        new ReservaEventoRepository($db),
+        $reservaRepo,
+        $eventoRepo,
         new ReservaValidator()
     );
     $controlador = new ReservaController($service);
 
     // 6. Enrutador
     $router = new Router();
-    
+
+    // --- Rutas de la API (devuelven JSON) ---
     $router->add('GET',   '/reservas',              [$controlador, 'listar']);
     $router->add('GET',   '/reservas/{id}',         [$controlador, 'ver']);
     $router->add('GET',   '/reservas/{id}/eventos', [$controlador, 'eventos']);
     $router->add('POST',  '/reservas',              [$controlador, 'crear']);
     $router->add('PATCH', '/reservas/{id}/estado',  [$controlador, 'cambiarEstado']);
 
+    // --- Rutas de las vistas (devuelven HTML) ---
+    $router->add('GET', '/vistas/reservas', function () use ($twig, $reservaRepo) {
+        $reservas = $reservaRepo->buscar([]);
+        echo $twig->render('reservas/listado.html.twig', ['reservas' => $reservas]);
+    });
+
+    $router->add('GET', '/vistas/reservas/{id}', function ($id) use ($twig, $reservaRepo, $eventoRepo) {
+        $reserva = $reservaRepo->buscarPorId((int) $id);
+        $eventos = $eventoRepo->listarPorReserva((int) $id);
+        echo $twig->render('reservas/detalle.html.twig', [
+            'reserva' => $reserva,
+            'eventos' => $eventos,
+        ]);
+    });
+
     // 7. Despachar la petición
     $router->dispatch($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
-
-
 
 } catch (ValidationException $e) {
     JsonResponse::send([
@@ -67,10 +89,5 @@ try {
     JsonResponse::send(['error' => $e->getMessage()], 404);
 } catch (Throwable $e) {
     error_log($e->getMessage() . ' en ' . $e->getFile() . ':' . $e->getLine());
-    JsonResponse::send(['error' => $e->getMessage()], 500); // Muestra el error real para que podamos depurar
+    JsonResponse::send(['error' => $e->getMessage()], 500);
 }
-
-$loader= new \Twing\Loader\FilesystemLoader(__DIR__. '/../templates');
-$twig= new \Twing\Environment($loader,[
-    'cache'=>false,
-]);

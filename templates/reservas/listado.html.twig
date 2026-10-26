@@ -1,40 +1,110 @@
-{% exteds 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block titulo % } Listado de reservas{% endblock %}
+{% block titulo %}Listado de Reservas{% endblock %}
+
 {% block contenido %}
-<h2>Listado de reservas<h2>
-<table>
-<thead>
-  <tr>
-      <th>Huésped</th>
-      <th>Alojamiento</th>
-      <th>Entrada</th>
-      <th>Salida</th>
-      <th>Estado</th>
-      <th>Importe</th>
-  </tr>
-<thead>
-  <tbody>
-        
-            {% for reserva in reservas %}
+    <div class="page-header">
+        <h2>Listado de Reservas</h2>
+        <button id="btn-mostrar-crear" class="btn btn-primary">+ Nueva Reserva</button>
+    </div>
+
+    <!-- Formulario de Filtros -->
+    <form id="form-filtros" class="filter-form">
+        <select name="estado" class="form-control">
+            <option value="">Todos los estados</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="confirmada">Confirmada</option>
+            <option value="cancelada">Cancelada</option>
+        </select>
+        <input type="text" name="nombre" placeholder="Buscar por huésped..." class="form-control">
+        <input type="date" name="fecha_desde" class="form-control">
+        <input type="date" name="fecha_hasta" class="form-control">
+        <button type="submit" class="btn btn-secondary">Filtrar</button>
+    </form>
+
+    <!-- Mensaje de Feedback (Cargando / Errores) -->
+    <div id="mensaje-estado" class="status-message"></div>
+
+    <!-- Sección de Crear Reserva (Oculta por defecto) -->
+    <section id="seccion-crear" class="card" style="display: none;">
+        <h3>Crear Nueva Reserva</h3>
+        <div id="errores-crear" class="error-box"></div>
+
+        <form id="form-crear" class="grid-form">
+            <div class="form-group">
+                <label>Nombre del huésped</label>
+                <input type="text" name="nombre_huesped" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email_huesped" required>
+            </div>
+            <div class="form-group">
+                <label>Alojamiento</label>
+                <input type="text" name="nombre_alojamiento" required>
+            </div>
+            <div class="form-group">
+                <label>Fecha de entrada</label>
+                <input type="date" name="fecha_entrada" required>
+            </div>
+            <div class="form-group">
+                <label>Fecha de salida</label>
+                <input type="date" name="fecha_salida" required>
+            </div>
+            <div class="form-group">
+                <label>Importe (€)</label>
+                <input type="number" step="0.01" name="importe" required>
+            </div>
+            <div class="form-group full-width">
+                <label>Notas (opcional)</label>
+                <textarea name="notas" rows="3"></textarea>
+            </div>
+            <div class="form-actions full-width">
+                <button type="submit" class="btn btn-primary">Guardar Reserva</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Tabla de Reservas -->
+    <div class="table-responsive">
+        <table id="tabla-reservas" class="table">
+            <thead>
                 <tr>
-                    <td>{{ reserva.nombre_huesped }}</td>
-                    <td>{{ reserva.nombre_alojamiento }}</td>
-                    
-                    <td>{{ reserva.fecha_entrada|date('d/m/Y') }}</td>
-                    <td>{{ reserva.fecha_salida|date('d/m/Y') }}</td>
-                    
-                    <td>{{ reserva.estado }}</td>
-                    
-                    <td>{{ reserva.importe|number_format(2, ',', '.') }} €</td>
+                    <th>Huésped</th>
+                    <th>Alojamiento</th>
+                    <th>Entrada</th>
+                    <th>Salida</th>
+                    <th>Estado</th>
+                    <th>Importe</th>
+                    <th>Acciones</th>
                 </tr>
-            {% else %}
-          
-                <tr>
-                    <td colspan="6">No hay reservas registradas.</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-  
-</table>
+            </thead>
+            <tbody>
+                {% for reserva in reservas %}
+                    <tr>
+                        <td><a href="/vistas/reservas/{{ reserva.id }}" class="link-detail">{{ reserva.nombre_huesped }}</a></td>
+                        <td>{{ reserva.nombre_alojamiento }}</td>
+                        <td>{{ reserva.fecha_entrada|date('d/m/Y') }}</td>
+                        <td>{{ reserva.fecha_salida|date('d/m/Y') }}</td>
+                        <td>
+                            <span class="badge badge-{{ reserva.estado }}">
+                                {{ reserva.estado|capitalize }}
+                            </span>
+                        </td>
+                        <td>{{ reserva.importe|number_format(2, ',', '.') }} €</td>
+                        <td>
+                            <a href="/vistas/reservas/{{ reserva.id }}" class="btn btn-sm btn-info">Ver</a>
+                            {% if reserva.estado == 'pendiente' %}
+                                <button class="btn btn-sm btn-danger btn-cancelar" data-id="{{ reserva.id }}">Cancelar</button>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7" class="text-center">No hay reservas registradas.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

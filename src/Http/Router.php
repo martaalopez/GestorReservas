@@ -9,6 +9,8 @@ class Router
 {
     private array $rutas = [];
 
+
+     // Registra una ruta asociando un método HTTP, una URL y un controlador.
     public function add(string $metodo, string $patron, callable $handler): void
     {
         $this->rutas[] = [
@@ -17,6 +19,7 @@ class Router
             'handler' => $handler,
         ];
     }
+      // Busca la ruta que coincide con la URL y ejecuta su controlador.
     public function dispatch(string $metodo, string $uri): void
     {
 

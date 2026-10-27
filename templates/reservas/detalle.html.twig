@@ -1,26 +1,70 @@
 {% extends 'base.html.twig' %}
 
-{% block titulo %}Detalle de la reserva{% endblock %}
+{% block titulo %}Reserva de {{ reserva.nombre_huesped }}{% endblock %}
 
 {% block contenido %}
 
-    <h2>Reserva de {{ reserva.nombre_huesped }}</h2>
+    <div class="page-header">
+        <h2>Reserva #{{ reserva.id }}</h2>
+        <a href="/vistas/reservas" class="btn btn-secondary">← Volver al listado</a>
+    </div>
 
-    <p>Email: {{ reserva.email_huesped }}</p>
-    <p>Alojamiento: {{ reserva.nombre_alojamiento }}</p>
-    <p>Entrada: {{ reserva.fecha_entrada }}</p>
-    <p>Salida: {{ reserva.fecha_salida }}</p>
-    <p>Importe: {{ reserva.importe }} €</p>
-    <p>Estado: {{ reserva.estado }}</p>
+    <section class="card">
+        <div class="detalle-cabecera">
+            <h3>{{ reserva.nombre_huesped }}</h3>
+            <span class="badge badge-{{ reserva.estado }}">{{ reserva.estado|capitalize }}</span>
+        </div>
 
-    <h3>Historial</h3>
+        <div class="detalle-grid">
+            <div class="detalle-item">
+                <span class="detalle-etiqueta">Email</span>
+                <span>{{ reserva.email_huesped }}</span>
+            </div>
+            <div class="detalle-item">
+                <span class="detalle-etiqueta">Alojamiento</span>
+                <span>{{ reserva.nombre_alojamiento }}</span>
+            </div>
+            <div class="detalle-item">
+                <span class="detalle-etiqueta">Entrada</span>
+                <span>{{ reserva.fecha_entrada|date('d/m/Y') }}</span>
+            </div>
+            <div class="detalle-item">
+                <span class="detalle-etiqueta">Salida</span>
+                <span>{{ reserva.fecha_salida|date('d/m/Y') }}</span>
+            </div>
+            <div class="detalle-item">
+                <span class="detalle-etiqueta">Importe</span>
+                <span class="detalle-importe">{{ reserva.importe|number_format(2, ',', '.') }} €</span>
+            </div>
+            {% if reserva.notas %}
+                <div class="detalle-item detalle-ancho">
+                    <span class="detalle-etiqueta">Notas</span>
+                    <span>{{ reserva.notas }}</span>
+                </div>
+            {% endif %}
+        </div>
 
-    {% for evento in eventos %}
-        <p>{{ evento.tipo }}: {{ evento.descripcion }} ({{ evento.fecha_creacion }})</p>
-    {% else %}
-        <p>No hay eventos registrados.</p>
-    {% endfor %}
+        {% if reserva.estado == 'pendiente' or reserva.estado == 'confirmada' %}
+    <div class="detalle-acciones">
+        <button class="btn btn-danger btn-cancelar" data-id="{{ reserva.id }}">Cancelar reserva</button>
+    </div>
+{% endif %}
+    </section>
 
-    <a href="/vistas/reservas">Volver al listado</a>
+    <section class="card">
+        <h3>Historial</h3>
+
+        <ul class="timeline">
+            {% for evento in eventos %}
+                <li class="timeline-item">
+                    <strong>{{ evento.tipo|capitalize }}</strong>
+                    <p>{{ evento.descripcion }}</p>
+                    <small>{{ evento.fecha_creacion|date('d/m/Y H:i') }}</small>
+                </li>
+            {% else %}
+                <li class="timeline-vacio">No hay eventos registrados.</li>
+            {% endfor %}
+        </ul>
+    </section>
 
 {% endblock %}

@@ -19,10 +19,12 @@ public function __construct(
     private ReservaEventoRepository $eventoRepo,
     private ReservaValidator $validator,
     ) {}
+
+     // Devuelve el listado de reservas aplicando los filtros.
     public function listar(array $filtros):array{
         return $this->reservaRepo->buscar($filtros);
     }
-
+    // Obtiene una reserva por ID o lanza un 404 si no existe.
     public function obtener(int $id):array{
         $reserva=$this->reservaRepo->buscarPorId($id);
         if($reserva===null){
@@ -30,11 +32,15 @@ public function __construct(
         }
         return $reserva;
     }
+
+    // Devuelve el historial de eventos de una reserva.
     public function eventos(int $id):array{
         $this->obtener($id);
          return $this->eventoRepo->buscarPorReserva($id);
 
     }
+
+     // Crea una reserva y su primer evento de historial 
       public function crear(array $datos): array
     {
         $limpios = $this->validator->validar($datos);
@@ -52,6 +58,8 @@ public function __construct(
 
         return $this->obtener($id);
     }
+    
+     // Cambia el estado de una reserva
    public function cambiarEstado(int $id, string $nuevoEstado): array
 {
   

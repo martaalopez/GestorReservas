@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Repository;
 
 use mysqli;
@@ -8,6 +10,7 @@ class ReservaRepository
 {
     public function __construct(private mysqli $db) {}
 
+    // Busca una reserva por su ID
     public function buscarPorId(int $id): ?array
 {
     $sql = 'SELECT * FROM reserva WHERE id = ?';
@@ -24,7 +27,7 @@ class ReservaRepository
     }
 }
 
-
+ // Lista reservas aplicando los filtros
 public function buscar(array $filtros): array
 {
     $sql = 'SELECT * FROM reserva WHERE 1=1';
@@ -54,7 +57,7 @@ public function buscar(array $filtros): array
 
     return $consulta->get_result()->fetch_all(MYSQLI_ASSOC);
 }
-
+ // Inserta una reserva 
    public function crear(array $datos): int
 {
     $sql='INSERT INTO reserva
@@ -75,13 +78,12 @@ public function buscar(array $filtros): array
 
     return $this->db->insert_id;
 }
-
+ // Actualiza el estado de una reserva
 public function actualizarEstado(int $id, string $estado): void
 {
     $sql ='UPDATE reserva SET estado = ? WHERE id = ?';
     $consulta = $this->db->prepare($sql);
     $consulta->execute([$estado, $id]);
 }
-
 
 }

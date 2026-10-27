@@ -56,3 +56,4 @@ Stack trace:
 [26-Oct-2026 13:44:39 Europe/Berlin] Call to undefined method App\Repository\ReservaEventoRepository::listarPorReserva() en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73
 [26-Oct-2026 13:45:31 Europe/Berlin] Call to undefined method App\Repository\ReservaEventoRepository::listarPorReserva() en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73
 [26-Oct-2026 14:12:52 Europe/Berlin] Call to undefined method App\Repository\ReservaEventoRepository::listarPorReserva() en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73
+[27-Oct-2026 11:01:30 Europe/Berlin] Call to undefined method App\Repository\ReservaEventoRepository::listarPorReserva() en C:\Users\usuario\Desktop\Reservas de alojamiento\public\index.php:73

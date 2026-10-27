@@ -12,5 +12,6 @@ class JsonResponse
         header('X-Content-Type-Options: nosniff');
 
         echo json_encode($datos, JSON_UNESCAPED_UNICODE);
+        exit;
     }
 }

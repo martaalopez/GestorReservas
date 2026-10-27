@@ -54,7 +54,7 @@ INSERT INTO
 VALUES (
         1,
         'Ana García López',
-        'ana.garcia@example.com',
+        'ana.garcia@gmail.com',
         'Hotel Sol y Mar',
         '2026-11-05',
         '2026-11-09',
@@ -66,7 +66,7 @@ VALUES (
     (
         2,
         'Carlos Martínez Ruiz',
-        'carlos.martinez@example.com',
+        'carlos.martinez@gmail.com',
         'Apartamentos Plaza Mayor',
         '2026-11-12',
         '2026-11-15',
@@ -78,7 +78,7 @@ VALUES (
     (
         3,
         'Lucía Fernández',
-        'lucia.fernandez@example.com',
+        'lucia.fernandez@gmail.com',
         'Casa Rural El Olivar',
         '2026-09-10',
         '2026-09-13',
@@ -90,7 +90,7 @@ VALUES (
     (
         4,
         'Javier Sánchez',
-        'javier.sanchez@example.com',
+        'javier.sanchez@gmail.com',
         'Hotel Sol y Mar',
         '2026-10-25',
         '2026-10-27',
@@ -102,7 +102,7 @@ VALUES (
     (
         5,
         'María Torres Gil',
-        'maria.torres@example.com',
+        'maria.torres@gmail.com',
         'Hostal La Alameda',
         '2026-12-20',
         '2026-12-22',
@@ -114,7 +114,7 @@ VALUES (
     (
         6,
         'David Jiménez',
-        'david.jimenez@example.com',
+        'david.jimenez@gmail.com',
         'Casa Rural El Olivar',
         '2026-12-06',
         '2026-12-08',

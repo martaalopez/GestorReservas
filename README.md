@@ -26,10 +26,15 @@ Aplicación de gestión de reservas  para la prueba técnica de MisterPlan. Incl
    ```bash
    composer install
    ```
+   
+3. **Para ejecutar el proyecto en local se tiene que utlizar XAMPP. Apache y MySQL deben estar iniciados para disponer del servidor web y de la base de datos.**
 
-3. **Importar el archivo SQL del proyecto desde phpMyAdmin, utilizando la pestaña Importar o la pestaña SQL.**
+<img width="828" height="307" alt="image" src="https://github.com/user-attachments/assets/e999e1c6-60ec-4ca2-8995-18adbdfbb7b3" />
 
-4. **Configurar las variables de entorno.**                                                                                            
+
+4. **Importar el archivo SQL del proyecto desde phpMyAdmin, utilizando la pestaña Importar o la pestaña SQL.**
+
+5. **Configurar las variables de entorno.**                                                                                            
    Configurar el archivo .env con los datos de conexión del entorno local.
    ```
    DB_HOST=127.0.0.1
@@ -39,13 +44,13 @@ Aplicación de gestión de reservas  para la prueba técnica de MisterPlan. Incl
    DB_PASS=
    ```
 
-5. **Arrancar el servidor** desde la raíz del proyecto
+6. **Arrancar el servidor** desde la raíz del proyecto
 
    ```bash
    php -S localhost:8000 -t htdocs
    ```
 
-6. **Abrir** [http://localhost:8000/vistas/reservas](http://localhost:8000/vistas/reservas)
+7. **Abrir** [http://localhost:8000/vistas/reservas](http://localhost:8000/vistas/reservas)
 
 
 ## Decisiones de diseño

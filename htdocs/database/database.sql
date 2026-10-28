@@ -38,6 +38,7 @@ CREATE TABLE reserva_evento (
     CONSTRAINT fk_evento_reserva FOREIGN KEY (reserva_id) REFERENCES reserva (id) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
+
 INSERT INTO
     reserva (
         id,
@@ -55,11 +56,11 @@ VALUES (
         1,
         'Ana García López',
         'ana.garcia@gmail.com',
-        'Hotel Sol y Mar',
+        'Hotel Mezquita',
         '2026-11-05',
         '2026-11-09',
         'pendiente',
-        480.00,
+        320.00,
         'Llegada después de las 22:00',
         '2026-10-10 09:15:00'
     ),
@@ -67,11 +68,11 @@ VALUES (
         2,
         'Carlos Martínez Ruiz',
         'carlos.martinez@gmail.com',
-        'Apartamentos Plaza Mayor',
+        'Hotel Plaza',
         '2026-11-12',
         '2026-11-15',
         'confirmada',
-        315.50,
+        360.00,
         NULL,
         '2026-10-02 11:30:00'
     ),
@@ -79,11 +80,11 @@ VALUES (
         3,
         'Lucía Fernández',
         'lucia.fernandez@gmail.com',
-        'Casa Rural El Olivar',
+        'Hotel Sierra',
         '2026-09-10',
         '2026-09-13',
         'confirmada',
-        410.00,
+        165.00,
         'Estancia ya disfrutada',
         '2026-08-20 09:00:00'
     ),
@@ -91,11 +92,11 @@ VALUES (
         4,
         'Javier Sánchez',
         'javier.sanchez@gmail.com',
-        'Hotel Sol y Mar',
+        'Hotel Mezquita',
         '2026-10-25',
         '2026-10-27',
         'cancelada',
-        210.00,
+        160.00,
         'Cancelada por enfermedad',
         '2026-09-20 10:00:00'
     ),
@@ -103,11 +104,11 @@ VALUES (
         5,
         'María Torres Gil',
         'maria.torres@gmail.com',
-        'Hostal La Alameda',
+        'Hotel Sierra',
         '2026-12-20',
         '2026-12-22',
         'pendiente',
-        130.00,
+        110.00,
         NULL,
         '2026-10-15 16:20:00'
     ),
@@ -115,11 +116,11 @@ VALUES (
         6,
         'David Jiménez',
         'david.jimenez@gmail.com',
-        'Casa Rural El Olivar',
+        'Hotel Plaza',
         '2026-12-06',
         '2026-12-08',
         'cancelada',
-        340.00,
+        240.00,
         'Cambio de planes',
         '2026-10-01 14:10:00'
     );

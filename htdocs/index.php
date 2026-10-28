@@ -1,26 +1,25 @@
 <?php
-declare(strict_types=1);
+declare(strict_types=0);
 
 // Configuración de errores
 ini_set('display_errors', '0');
 ini_set('log_errors', '1');
-ini_set('error_log', __DIR__ . '/../logs/error.log');
+ini_set('error_log', __DIR__ . '/logs/error.log');
 error_reporting(E_ALL);
 
 // Cargar  archivos
-require __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../src/DbConnection.php';
-require_once __DIR__ . '/../src/Exception/NotFoundException.php';
-require_once __DIR__ . '/../src/Exception/ValidationException.php';
-require_once __DIR__ . '/../src/Exception/BadRequestException.php';
-require_once __DIR__ . '/../src/Http/JsonResponse.php';
-require_once __DIR__ . '/../src/Http/Router.php';
-require_once __DIR__ . '/../src/Validation/ReservaValidator.php';
-require_once __DIR__ . '/../src/Repository/ReservaRepository.php';
-require_once __DIR__ . '/../src/Repository/ReservaEventoRepository.php';
-require_once __DIR__ . '/../src/Service/ReservaService.php';
-require_once __DIR__ . '/../src/Controller/ReservaController.php';
-
+require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/src/DbConnection.php';
+require_once __DIR__ . '/src/Exception/NotFoundException.php';
+require_once __DIR__ . '/src/Exception/ValidationException.php';
+require_once __DIR__ . '/src/Exception/BadRequestException.php';
+require_once __DIR__ . '/src/Http/JsonResponse.php';
+require_once __DIR__ . '/src/Http/Router.php';
+require_once __DIR__ . '/src/Validation/ReservaValidator.php';
+require_once __DIR__ . '/src/Repository/ReservaRepository.php';
+require_once __DIR__ . '/src/Repository/ReservaEventoRepository.php';
+require_once __DIR__ . '/src/Service/ReservaService.php';
+require_once __DIR__ . '/src/Controller/ReservaController.php';
 // Imports
 use App\Controller\ReservaController;
 use App\DbConnection;
@@ -39,7 +38,7 @@ try {
     $db = DbConnection::getConnection();
 
     // Twig 
-    $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
+    $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/templates');
     $twig = new \Twig\Environment($loader, ['cache' => false]);
 
     $reservaRepo = new ReservaRepository($db);

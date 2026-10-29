@@ -2,3 +2,11 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]
+
+# Bloquear el acceso al archivo .env
+<Files ".env">
+    Require all denied
+</Files>
+
+# Bloquear el acceso a la carpeta logs
+RedirectMatch 404 /logs
